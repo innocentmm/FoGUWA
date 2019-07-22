@@ -29,7 +29,8 @@ export default {
     return {
       map: null,
       google: null,
-      markerInstances: []
+      markerInstances: [],
+      infowindow: null
     }
   },
   computed: {
@@ -49,10 +50,10 @@ export default {
         ...uwaMapSettings
       }
     },
-    markers() {
-      // Generate array of markers
-      const markers = [...plants] // Copy the array
-      return markers
+    plants() {
+      // Make copy the array of plants
+      // TODO make prop, so this can be managed and filtered externally (e.g. by searchbar)
+      return [...plants]
     }
   },
   watch: {
@@ -63,7 +64,7 @@ export default {
     google(val) {
       this.loadMarkers()
     },
-    markers(val) {
+    plants(val) {
       this.loadMarkers()
     }
   },
@@ -76,21 +77,21 @@ export default {
         }
         this.markerInstances = []
         // Create new markers and store them
-        this.markers.forEach((marker, index) => {
-          const leafIcon = {
-            path: 'M17 8C8 10 5.901 16.166 3.816 21.343l1.891.65.954-2.292c.482.168.976.299 1.339.299C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z',
-            fillColor: '#008000',
-            fillOpacity: 1.0,
-            strokeColor: '#004d00',
-            scale: 1
-          }
-          const statueIcon = {
-            path: 'M17 8C8 10 5.901 16.166 3.816 21.343l1.891.65.954-2.292c.482.168.976.299 1.339.299C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z',
-            fillColor: '#cd7f32',
-            fillOpacity: 1.0,
-            strokeColor: '#905923',
-            scale: 1
-          }
+        const leafIcon = {
+          path: 'M17 8C8 10 5.901 16.166 3.816 21.343l1.891.65.954-2.292c.482.168.976.299 1.339.299C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z',
+          fillColor: '#008000',
+          fillOpacity: 1.0,
+          strokeColor: '#004d00',
+          scale: 1
+        }
+        const statueIcon = {
+          path: 'M17 8C8 10 5.901 16.166 3.816 21.343l1.891.65.954-2.292c.482.168.976.299 1.339.299C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z',
+          fillColor: '#cd7f32',
+          fillOpacity: 1.0,
+          strokeColor: '#905923',
+          scale: 1
+        }
+        this.plants.forEach((plant, index) => {
           // const leafIcon = {
           //   url: 'data:image/svg+xml;utf8,' + encodeURIComponent(this.$refs.leafIconSVG.outerHTML),
           //   size: null, // new this.google.maps.Size(24, 24),
@@ -99,18 +100,43 @@ export default {
           //   scaledSize: new this.google.maps.Size(this.width, this.height)
           // }
           // Plot all instances
-          for (const instance of marker.instances) {
+          console.log(plant) // eslint-disable-line
+          const infowindow = new this.google.maps.InfoWindow({
+            content: this.popUpStyle(plant),
+            map: this.map
+          })
+          for (const instance of plant.instances) {
             const markerInst = new this.google.maps.Marker({
-              label: marker.name,
+              label: plant.name,
               position: instance.location,
-              icon: (marker.type === 'tree' ? leafIcon : statueIcon),
+              icon: (plant.type === 'tree' ? leafIcon : statueIcon),
               map: this.map
+            })
+            markerInst.addListener('click', () => {
+              infowindow.open(this.map, markerInst)
             })
             this.markerInstances.push(markerInst)
           }
         })
       }
+    },
+    popUpStyle(plant) {
+      return `
+      <div id="container">
+      <b>${plant.name}</b>
+      <i>${plant.scientificName}</i>
+      ${plant.description}
+      </div>`
     }
   }
 }
 </script>
+
+<style>
+#container {
+margin-bottom: 10px;
+width: 150px;
+top: 15px;
+left: 0px;
+}
+</style>

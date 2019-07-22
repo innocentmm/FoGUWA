@@ -6,6 +6,7 @@
       "scientificName": "Banksia littoralis",
       "type": "tree",
       "description": "...",
+      "link": "https://florabase.dpaw.wa.gov.au/browse/profile/1830",
       "instances": [
         {
           "description": "...",
@@ -18,6 +19,7 @@
       "scientificName": "Grevillea wickhamii",
       "type": "tree",
       "description": "...",
+      "link": "https://florabase.dpaw.wa.gov.au/browse/profile/2121",
       "instances": [
         {
           "description": "...",
@@ -30,6 +32,7 @@
       "scientificName": "Banksia prionotes",
       "type": "tree",
       "description": "...",
+      "link": "https://florabase.dpaw.wa.gov.au/browse/profile/1842",
       "instances": [
         {
           "description": "...",
@@ -42,6 +45,7 @@
       "scientificName": "Corymbia calophylla",
       "type": "tree",
       "description": "...",
+      "link": "https://florabase.dpaw.wa.gov.au/browse/profile/17104",
       "instances": [
         {
           "description": "...",
@@ -54,6 +58,7 @@
       "scientificName": "Hakea laurina",
       "type": "tree",
       "description": "...",
+      "link": "https://florabase.dpaw.wa.gov.au/browse/profile/2171",
       "instances": [
         {
           "description": "...",
@@ -66,6 +71,7 @@
       "scientificName": "Eucalyptus marginata",
       "type": "tree",
       "description": "...",
+      "link": "https://florabase.dpaw.wa.gov.au/browse/profile/5708",
       "instances": [
         {
           "description": "Dead.",
@@ -82,6 +88,7 @@
       "scientificName": "Nuytsia floribunda",
       "type": "tree",
       "description": "...",
+      "link": "https://florabase.dpaw.wa.gov.au/browse/profile/2401",
       "instances": [
         {
           "description": "...",
@@ -90,10 +97,11 @@
       ]
     },
     {
-      "name": "Zamia Palm",
+      "name": "Zamia",
       "scientificName": "Macrozamia riedlei",
       "type": "tree",
       "description": "...",
+      "link": "https://florabase.dpaw.wa.gov.au/browse/profile/85",
       "instances": [
         {
           "description": "...",
@@ -106,6 +114,7 @@
       "scientificName": "Agonis flexuosa",
       "type": "tree",
       "description": "...",
+      "link": "https://florabase.dpaw.wa.gov.au/browse/profile/5316",
       "instances": [
         {
           "description": "...",
@@ -118,6 +127,7 @@
       "scientificName": "Araucaria heterophylla",
       "type": "tree",
       "description": "...",
+      "link": "",
       "instances": [
         {
           "description": "...",
@@ -142,6 +152,7 @@
       "scientificName": "Xanthorrhoea",
       "type": "tree",
       "description": "...",
+      "link": "https://florabase.dpaw.wa.gov.au/browse/profile/21189",
       "instances": [
         {
           "description": "...",
