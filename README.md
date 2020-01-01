@@ -122,6 +122,10 @@ If you would like to use youtube to watch tutorials, here are a few reputed ones
 - [Design Course](https://www.youtube.com/user/DesignCourse)
 - [Free Code Camp](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ)
 
+## The UI Design
+
+[Friends of the Grounds User Interface](https://xd.adobe.com/view/7876d8c4-973a-41af-4b63-c5b8af942d58-0e47/)
+
 ## Development Team
 
 ### Winter 2019
